@@ -103,7 +103,7 @@ class NetBN(nn.Module):
         self.qmaxpool2d_1 = QMaxPooling2d(kernel_size=2, stride=2, padding=0)
         self.qconv2 = QConvBNRelu(self.conv2, self.bn2, qi=False, qo=True, num_bits=num_bits)
         self.qmaxpool2d_2 = QMaxPooling2d(kernel_size=2, stride=2, padding=0)
-        self.qfc = QLinear(self.fc, qi=False, qo=True, num_bits=num_bits)
+        self.fc = QLinear(self.fc, qi=False, qo=True, num_bits=num_bits)
 
     def quantize_forward(self, x):
         x = self.qconv1(x)
@@ -133,38 +133,6 @@ class NetBN(nn.Module):
 
         out = self.qfc.qo.dequantize_tensor(qx)
         return out
-
-    
-class Resnet18(nn.Module):
-
-    def __init__(self, num_channels=1):
-        super(Resnet18, self).__init__()
-        self.conv1 = nn.Conv2d(num_channels, 40, 3, 1)
-        self.bn1 = nn.BatchNorm2d(40)
-        self.conv2 = nn.Conv2d(40, 40, 3, 1)
-        self.bn2 = nn.BatchNorm2d(40)
-        self.fc = nn.Linear(5 * 5 * 40, 10)
-
-    def forward(self, x):
-
-        return x
-
-    def quantize(self, num_bits=8):
-
-
-    def quantize_forward(self, x):
-
-        return x
-
-    def freeze(self):
-
-    def quantize_inference(self, x):
-
-        return out    
-    
-    
-    
-    
     
     
 class QNetBN(nn.Module):

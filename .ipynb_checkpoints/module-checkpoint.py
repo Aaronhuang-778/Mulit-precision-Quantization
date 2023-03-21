@@ -268,6 +268,31 @@ class QMaxPooling2d(QModule):
     def quantize_inference(self, x):
         return F.max_pool2d(x, self.kernel_size, self.stride, self.padding)
 
+class QAdaptiveAvgPooling2d(QModule):
+    def __init__(self, outputsize=(1, 1), qi=False, num_bits=None):
+        super(QAdaptiveAvgPooling2d, self).__init__(qi=qi, num_bits=num_bits)
+        self.outputsize = outputsize
+
+    def freeze(self, qi=None):
+        if hasattr(self, 'qi') and qi is not None:
+            raise ValueError('qi has been provided in init function.')
+        if not hasattr(self, 'qi') and qi is None:
+            raise ValueError('qi is not existed, should be provided.')
+        if qi is not None:
+            self.qi = qi
+
+    def forward(self, x):
+        if hasattr(self, 'qi'):
+            self.qi.update(x)
+            x = FakeQuantize.apply(x, self.qi)
+
+        x = F.max_pool2d(x, self.kernel_size, self.stride, self.padding)
+
+        return x
+
+    def quantize_inference(self, x):
+        return F.max_pool2d(x, self.kernel_size, self.stride, self.padding)
+
 
 class QConvBNRelu(QModule):
     def __init__(self, conv_module, bn_module, qi=True, qo=True, num_bits=8):

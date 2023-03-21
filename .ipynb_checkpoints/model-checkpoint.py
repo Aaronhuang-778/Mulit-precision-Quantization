@@ -133,6 +133,39 @@ class NetBN(nn.Module):
 
         out = self.qfc.qo.dequantize_tensor(qx)
         return out
+
+    
+class Resnet18(nn.Module):
+
+    def __init__(self, num_channels=1):
+        super(Resnet18, self).__init__()
+        self.conv1 = nn.Conv2d(num_channels, 40, 3, 1)
+        self.bn1 = nn.BatchNorm2d(40)
+        self.conv2 = nn.Conv2d(40, 40, 3, 1)
+        self.bn2 = nn.BatchNorm2d(40)
+        self.fc = nn.Linear(5 * 5 * 40, 10)
+
+    def forward(self, x):
+
+        return x
+
+    def quantize(self, num_bits=8):
+
+
+    def quantize_forward(self, x):
+
+        return x
+
+    def freeze(self):
+
+    def quantize_inference(self, x):
+
+        return out    
+    
+    
+    
+    
+    
     
 class QNetBN(nn.Module):
     
