@@ -103,7 +103,7 @@ class NetBN(nn.Module):
         self.qmaxpool2d_1 = QMaxPooling2d(kernel_size=2, stride=2, padding=0)
         self.qconv2 = QConvBNRelu(self.conv2, self.bn2, qi=False, qo=True, num_bits=num_bits)
         self.qmaxpool2d_2 = QMaxPooling2d(kernel_size=2, stride=2, padding=0)
-        self.fc = QLinear(self.fc, qi=False, qo=True, num_bits=num_bits)
+        self.qfc = QLinear(self.fc, qi=False, qo=True, num_bits=num_bits)
 
     def quantize_forward(self, x):
         x = self.qconv1(x)
@@ -194,4 +194,76 @@ class QNetBN(nn.Module):
         out = self.qfc.qo.dequantize_tensor(qx)
         return out
 
-     
+
+
+class test_jit(nn.Module):
+
+    def __init__(self, num_channels=1):
+        super(test_jit, self).__init__()
+        self.conv1 = nn.Conv2d(num_channels, 64, 3, 1, 1)
+        self.bn1 = nn.BatchNorm2d(64)
+        self.conv2 = nn.Conv2d(64, 256, 3, 1, 1)
+        self.bn2 = nn.BatchNorm2d(256)
+        self.fc1 = nn.Linear(12544, 512)
+        self.fc2 = nn.Linear(512, 10)
+
+    def forward(self, x):
+        x = self.conv1(x)
+        x = self.bn1(x)
+
+        x = F.max_pool2d(x, 2, 2, 0)
+
+        x = self.conv2(x)
+        x = self.bn2(x)
+
+        x = F.max_pool2d(x, 2, 2, 0)
+
+        x = x.view(-1, 12544)
+        x = self.fc1(x)
+        x = F.relu(x)
+        x = self.fc2(x)
+        return x
+
+    def quantize(self, num_bits=8):
+        self.qconv1 = QConvBN(self.conv1, self.bn1, qi=True, qo=True, num_bits=num_bits)
+        self.qmaxpool2d_1 = QMaxPooling2d(kernel_size=2, stride=2, padding=0)
+        self.qconv2 = QConvBN(self.conv2, self.bn2, qi=False, qo=True, num_bits=num_bits)
+        self.qmaxpool2d_2 = QMaxPooling2d(kernel_size=2, stride=2, padding=0)
+        self.qfc1 = QLinear(self.fc1, qi=False, qo=True, num_bits=num_bits)
+        self.qrelu = QRelu(qi=False,num_bits=num_bits)
+        self.qfc2 = QLinear(self.fc2, qi=False, qo=True, num_bits=num_bits)
+
+    def quantize_forward(self, x):
+        x = self.qconv1(x)
+        x = self.qmaxpool2d_1(x)
+        x = self.qconv2(x)
+        x = self.qmaxpool2d_2(x)
+        x = x.view(-1, 12544)
+        x = self.qfc1(x)
+        x = self.qrelu(x)
+        x = self.qfc2(x)
+        return x
+
+    def freeze(self):
+        self.qconv1.freeze()
+        self.qmaxpool2d_1.freeze(self.qconv1.qo)
+        self.qconv2.freeze(qi=self.qconv1.qo)
+        self.qmaxpool2d_2.freeze(self.qconv2.qo)
+        self.qfc1.freeze(qi=self.qconv2.qo)
+        self.qrelu.freeze(qi=self.qfc1.qo)
+        self.qfc2.freeze(qi=self.qfc1.qo)
+
+    def quantize_inference(self, x):
+        qx = self.qconv1.qi.quantize_tensor(x)
+        qx = self.qconv1.quantize_inference(qx)
+        qx = self.qmaxpool2d_1.quantize_inference(qx)
+        qx = self.qconv2.quantize_inference(qx)
+        qx = self.qmaxpool2d_2.quantize_inference(qx)
+        qx = qx.view(-1, 12544)
+
+        qx = self.qfc1.quantize_inference(qx)
+        qx = self.qrelu.quantize_inference(qx)
+        qx = self.qfc2.quantize_inference(qx)
+
+        out = self.qfc2.qo.dequantize_tensor(qx)
+        return out

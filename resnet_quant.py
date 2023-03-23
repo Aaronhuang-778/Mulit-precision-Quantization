@@ -30,8 +30,10 @@ def full_inference(model, test_loader):
 def quantize_inference(model, test_loader):
     correct = 0
     for i, (data, target) in enumerate(test_loader, 1):
-        output = model.quantize_inference(data)
+        output, last= model.quantize_inference(data)
         pred = output.argmax(dim=1, keepdim=True)
+        if i % 200 == 0:
+            print(target, pred, last)
         correct += pred.eq(target.view_as(pred)).sum().item()
     print('\nTest set: Quant Model Accuracy: {:.4f}%\n'.format(100. * correct / len(test_loader.dataset)))
 
@@ -75,8 +77,8 @@ if __name__ == "__main__":
     
 
     direct_quantize(model, train_dataloader)
-    model.freeze()
     torch.save(model.state_dict(), save_file)
+    model.freeze()
 
     quantize_inference(model, test_dataloader)
 

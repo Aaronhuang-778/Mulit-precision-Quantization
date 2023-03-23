@@ -1,0 +1,11 @@
+%0=input(shape=(1,1,28,28));
+%1=nn.conv2d(input=%0, weight=layer_1_weight.bin, bias=layer_1_bias.bin, output_channel=64, input_channel=1, kernel_size=(3,3), stride=(1,1), padding=(1,1), dilation=(1,1));
+%2=nn.batch_norm2d(input=%1, weight=layer_2_weight.bin, bias=layer_2_bias.bin, running_mean=layer_2_running_mean.bin, running_var=layer_2_running_var.bin, num_features=64, eps=0.000010, momentum=0.100000);
+%3=nn.maxpool2d(input=%2, kernel_size=(2,2), stride=(2,2), padding=(0,0), dilation=(1,1));
+%4=nn.conv2d(input=%3, weight=layer_4_weight.bin, bias=layer_4_bias.bin, output_channel=256, input_channel=64, kernel_size=(3,3), stride=(1,1), padding=(1,1), dilation=(1,1));
+%5=nn.batch_norm2d(input=%4, weight=layer_5_weight.bin, bias=layer_5_bias.bin, running_mean=layer_5_running_mean.bin, running_var=layer_5_running_var.bin, num_features=256, eps=0.000010, momentum=0.100000);
+%6=nn.maxpool2d(input=%5, kernel_size=(2,2), stride=(2,2), padding=(0,0), dilation=(1,1));
+%7=nn.flatten(input=%6);
+%8=add(input1=%bias.1, input2=%7);
+%9=nn.relu(input=%8);
+%10=add(input1=%bias, input2=%9);

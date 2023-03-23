@@ -46,7 +46,7 @@ def test(model, device, test_loader):
 
     test_loss /= len(test_loader.dataset)
 
-    print('\nTest set: Average loss: {:.4f}, Accuracy: {:.0f}%\n'.format(
+    print('\nTest set: Average loss: {:.4f}, Accuracy: {:.2f}%\n'.format(
         test_loss, 100. * correct / len(test_loader.dataset)
     ))
 
@@ -82,10 +82,12 @@ if __name__ == "__main__":
         batch_size=test_batch_size, shuffle=True, num_workers=1, pin_memory=True
     )
 
-    if using_bn:
-        model = NetBN().to(device)
-    else:
-        model = Net().to(device)
+    # if using_bn:
+    #     model = NetBN().to(device)
+    # else:
+    #     model = Net().to(device)
+
+    model = test_jit().to(device)
 
     optimizer = optim.SGD(model.parameters(), lr=lr, momentum=momentum)
 
@@ -97,6 +99,6 @@ if __name__ == "__main__":
         if not osp.exists('modelfile'):
             os.makedirs('modelfile')
         if using_bn:
-            torch.save(model.state_dict(), 'modelfile/mnist_cnnbn.pt')
+            torch.save(model.state_dict(), 'modelfile/mnist_jit.pt')
         else:
-            torch.save(model.state_dict(), 'modelfile/mnist_cnn.pt')
+            torch.save(model.state_dict(), 'modelfile/mnist_jit.pt')

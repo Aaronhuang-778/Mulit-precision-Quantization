@@ -213,6 +213,36 @@ class QLinear(QModule):
         x.clamp_(0., 2.**self.num_bits-1.).round_()
         return x
 
+class Qadd(QModule):
+    def __init__(self, x1, x2, qi=False, qo=True, num_bits=None):
+        super(Qadd, self).__init__(qi=qi, qo=qo, num_bits=num_bits)
+        self.num_bits = num_bits
+        self.q1 = QParam(num_bits=num_bits)
+        self.q2 = QParam(num_bits=num_bits)
+
+    def freeze(self, qi=None, qo=None):
+        if hasattr(self, 'qo') and qo is not None:
+            raise ValueError('qo has been provided in init function.')
+        if not hasattr(self, 'qo') and qo is None:
+            raise ValueError('qo is not existed, should be provided.')
+        if qo is not None:
+            self.qo = qo
+
+    def forward(self, x1, x2):
+        x = x1 + x2
+        if hasattr(self, 'qo'):
+            self.x1.update(x1)
+            self.x2.update(x2)
+            x = FakeQuantize.apply(x, self.qi)
+
+        x = x1 + x2
+        self.qo.update(x)
+        return x
+
+    def quantize_inference(self, x1, x2):
+        y = x1 + x2
+
+        return 
 
 class QRelu(QModule):
     def __init__(self, qi=False, num_bits=8):
@@ -238,7 +268,10 @@ class QRelu(QModule):
 
     def quantize_inference(self, x):
         x = x.clone()
+        # print("qrelu input: ", x)
         x[x < self.qi.zero_point] = self.qi.zero_point
+        # print(self.qi.zero_point)
+        # print("qrelu output: ", x)
         return x
 
 class QMaxPooling2d(QModule):

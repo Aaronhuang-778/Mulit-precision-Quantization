@@ -1,0 +1,75 @@
+[2023-3-23 16:5:18] Info: Read model_path: ../modelfile/test_jit.pt
+[2023-3-23 16:5:18] Info: Read input_shape: 1,1,28,28
+[2023-3-23 16:5:18] Info: Read output_dir: file/
+[2023-3-23 16:5:18] Info: Extract parameters finished
+[2023-3-23 16:5:18] Info: Extract calculation graph finished
+[2023-3-23 16:5:18] Info: Graph "self.1" detected
+[2023-3-23 16:5:18] Info: input "input.2" detected
+[2023-3-23 16:5:18] Info: Constant "2": type "int", value: 1 detected
+[2023-3-23 16:5:18] Info: Constant "3": type "int", value: -1 detected
+[2023-3-23 16:5:18] Info: Node: "fc_layers": fc_layers detected
+[2023-3-23 16:5:18] Info: Node: "conv_layers": conv_layers detected
+[2023-3-23 16:5:18] Info: Constant "9": type "int", value: 2 detected
+[2023-3-23 16:5:18] Info: Constant "10": type "float", value: 0.1 detected
+[2023-3-23 16:5:18] Info: Constant "11": type "float", value: 1e-05 detected
+[2023-3-23 16:5:18] Info: Constant "12": type "bool", value: True detected
+[2023-3-23 16:5:18] Info: Constant "13": type "bool", value: True detected
+[2023-3-23 16:5:18] Info: Constant "14": type "int", value: 1 detected
+[2023-3-23 16:5:18] Info: Constant "15": type "int", value: 0 detected
+[2023-3-23 16:5:18] Info: Node: "_5": conv_layers.5 detected
+[2023-3-23 16:5:18] Info: Node: "_4": conv_layers.4 detected
+[2023-3-23 16:5:18] Info: Node: "_3": conv_layers.3 detected
+[2023-3-23 16:5:18] Info: Node: "_2.1": conv_layers.2 detected
+[2023-3-23 16:5:18] Info: Node: "_1.1": conv_layers.1 detected
+[2023-3-23 16:5:18] Info: Node: "_0.1": conv_layers.0 detected
+[2023-3-23 16:5:18] Info: Parameter "bias.2": conv_layers.0.bias detected
+[2023-3-23 16:5:18] Info: Parameter "weight.2": conv_layers.0.weight detected
+[2023-3-23 16:5:18] Info: ListConstruct "24": [1, 1] detected
+[2023-3-23 16:5:18] Info: ListConstruct "25": [1, 1] detected
+[2023-3-23 16:5:18] Info: ListConstruct "26": [1, 1] detected
+[2023-3-23 16:5:18] Info: ListConstruct "27": [0, 0] detected
+[2023-3-23 16:5:18] Info: Conv2d "input0.4": input:input.2, output_channel:64, input_channel:1, kernel_size:[3, 3], stride:[1, 1], padding:[1, 1], dilation:[1, 1] detected
+[2023-3-23 16:5:18] Info: Parameter "running_var.1": conv_layers.1.running_var detected
+[2023-3-23 16:5:18] Info: Parameter "running_mean.1": conv_layers.1.running_mean detected
+[2023-3-23 16:5:18] Info: Parameter "bias.3": conv_layers.1.bias detected
+[2023-3-23 16:5:18] Info: Parameter "weight.3": conv_layers.1.weight detected
+[2023-3-23 16:5:18] Info: BatchNorm2d "input.4": input:input0.4, num_features:64, eps:1e-05, momentum:0.1 detected
+[2023-3-23 16:5:18] Info: ListConstruct "34": [2, 2] detected
+[2023-3-23 16:5:18] Info: ListConstruct "35": [2, 2] detected
+[2023-3-23 16:5:18] Info: ListConstruct "36": [0, 0] detected
+[2023-3-23 16:5:18] Info: ListConstruct "37": [1, 1] detected
+[2023-3-23 16:5:18] Info: Maxpool2d "input.6": input:input.4, kernel_size:[2, 2], stride=[2, 2], padding=[0, 0], dilation=[1, 1] detected
+[2023-3-23 16:5:18] Info: Parameter "bias.5": conv_layers.3.bias detected
+[2023-3-23 16:5:18] Info: Parameter "weight.5": conv_layers.3.weight detected
+[2023-3-23 16:5:18] Info: ListConstruct "41": [1, 1] detected
+[2023-3-23 16:5:18] Info: ListConstruct "42": [1, 1] detected
+[2023-3-23 16:5:18] Info: ListConstruct "43": [1, 1] detected
+[2023-3-23 16:5:18] Info: ListConstruct "44": [0, 0] detected
+[2023-3-23 16:5:18] Info: Conv2d "input.8": input:input.6, output_channel:256, input_channel:64, kernel_size:[3, 3], stride:[1, 1], padding:[1, 1], dilation:[1, 1] detected
+[2023-3-23 16:5:18] Info: Parameter "running_var": conv_layers.4.running_var detected
+[2023-3-23 16:5:18] Info: Parameter "running_mean": conv_layers.4.running_mean detected
+[2023-3-23 16:5:18] Info: Parameter "bias.4": conv_layers.4.bias detected
+[2023-3-23 16:5:18] Info: Parameter "weight.4": conv_layers.4.weight detected
+[2023-3-23 16:5:18] Info: BatchNorm2d "input.1": input:input.8, num_features:256, eps:1e-05, momentum:0.1 detected
+[2023-3-23 16:5:18] Info: ListConstruct "51": [2, 2] detected
+[2023-3-23 16:5:18] Info: ListConstruct "52": [2, 2] detected
+[2023-3-23 16:5:18] Info: ListConstruct "53": [0, 0] detected
+[2023-3-23 16:5:18] Info: ListConstruct "54": [1, 1] detected
+[2023-3-23 16:5:18] Info: Maxpool2d "x.1": input:input.1, kernel_size:[2, 2], stride=[2, 2], padding=[0, 0], dilation=[1, 1] detected
+[2023-3-23 16:5:18] Info: Flatten "input0.2": input:x.1 detected
+[2023-3-23 16:5:18] Info: Constant "56": type "int", value: 1 detected
+[2023-3-23 16:5:18] Info: Node: "_2": fc_layers.2 detected
+[2023-3-23 16:5:18] Info: Node: "_1": fc_layers.1 detected
+[2023-3-23 16:5:18] Info: Node: "_0": fc_layers.0 detected
+[2023-3-23 16:5:18] Info: Parameter "bias.1": fc_layers.0.bias detected
+[2023-3-23 16:5:18] Info: Parameter "weight.1": fc_layers.0.weight detected
+[2023-3-23 16:5:18] Info: Transpose "62": input:weight.1 detected
+[2023-3-23 16:5:18] Info: Add "input0.1": input1:bias.1, input2:input0.2 detected
+[2023-3-23 16:5:18] Info: Relu "64": input:input0.1 detected
+[2023-3-23 16:5:18] Info: Parameter "bias": fc_layers.2.bias detected
+[2023-3-23 16:5:18] Info: Parameter "weight": fc_layers.2.weight detected
+[2023-3-23 16:5:18] Info: Transpose "67": input:weight detected
+[2023-3-23 16:5:18] Info: Add "68": input1:bias, input2:64 detected
+[2023-3-23 16:5:18] Info: Read model finished
+[2023-3-23 16:5:18] Info: Graph rearrange finished
+[2023-3-23 16:5:18] Info: Extract result save at file/

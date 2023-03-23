@@ -17,9 +17,9 @@ from module import *
 class CommonBlock(nn.Module):
     def __init__(self, in_channel, out_channel, stride):        # 普通Block简单完成两次卷积操作
         super(CommonBlock, self).__init__()
-        self.conv1 = nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=stride, padding=1, bias=False)
+        self.conv1 = nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=stride, padding=1, bias=True)
         self.bn1 = nn.BatchNorm2d(out_channel)
-        self.conv2 = nn.Conv2d(out_channel, out_channel, kernel_size=3, stride=stride, padding=1, bias=False)
+        self.conv2 = nn.Conv2d(out_channel, out_channel, kernel_size=3, stride=stride, padding=1, bias=True)
         self.bn2 = nn.BatchNorm2d(out_channel)
 
     def forward(self, x):
@@ -64,12 +64,12 @@ class SpecialBlock(nn.Module):                                  # 特殊Block完
     def __init__(self, in_channel, out_channel, stride):        # 注意这里的stride传入一个数组，shortcut和残差部分stride不同
         super(SpecialBlock, self).__init__()
 
-        self.pre1 = nn.Conv2d(in_channel, out_channel, kernel_size=1, stride=stride[0], padding=0, bias=False)
+        self.pre1 = nn.Conv2d(in_channel, out_channel, kernel_size=1, stride=stride[0], padding=0, bias=True)
         self.pre2 = nn.BatchNorm2d(out_channel)
 
-        self.conv1 = nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=stride[0], padding=1, bias=False)
+        self.conv1 = nn.Conv2d(in_channel, out_channel, kernel_size=3, stride=stride[0], padding=1, bias=True)
         self.bn1 = nn.BatchNorm2d(out_channel)
-        self.conv2 = nn.Conv2d(out_channel, out_channel, kernel_size=3, stride=stride[1], padding=1, bias=False)
+        self.conv2 = nn.Conv2d(out_channel, out_channel, kernel_size=3, stride=stride[1], padding=1, bias=True)
         self.bn2 = nn.BatchNorm2d(out_channel)
 
     def forward(self, x):
@@ -205,40 +205,51 @@ class Resnet18(nn.Module):
         self.qmaxpool2d_1.freeze(qi=self.qconv1.qo)
 
         self.qblock1_1.freeze(qi=self.qconv1.qo)
-        self.qblock1_2.freeze(qi=self.qblock1_1.qconv2.qo)
-        self.qblock2_1.freeze(qi=self.qblock1_2.qconv2.qo)
-        self.qblock2_2.freeze(qi=self.qblock2_1.qconv2.qo)
-        self.qblock3_1.freeze(qi=self.qblock2_2.qconv2.qo)
-        self.qblock3_2.freeze(qi=self.qblock3_1.qconv2.qo)
-        self.qblock4_1.freeze(qi=self.qblock3_2.qconv2.qo)
-        self.qblock4_2.freeze(qi=self.qblock4_1.qconv2.qo)
+        self.qblock1_2.freeze(qi=self.qblock1_1.qrelu.qi)
+        self.qblock2_1.freeze(qi=self.qblock1_2.qrelu.qi)
+        self.qblock2_2.freeze(qi=self.qblock2_1.qrelu.qi)
+        self.qblock3_1.freeze(qi=self.qblock2_2.qrelu.qi)
+        self.qblock3_2.freeze(qi=self.qblock3_1.qrelu.qi)
+        self.qblock4_1.freeze(qi=self.qblock3_2.qrelu.qi)
+        self.qblock4_2.freeze(qi=self.qblock4_1.qrelu.qi)
 
-        self.qadaptive_avg_pool2d.freeze(qi=self.qblock4_2.qconv2.qo)
-        self.qfc1.freeze(qi=self.qblock4_2.qconv2.qo)
-        self.qrelu(qi=self.qblock4_2.qconv2.qo)
-        self.qfc2.freeze(qi=self.qblock4_2.qconv2.qo)
+        self.qadaptive_avg_pool2d.freeze(qi=self.qblock4_2.qrelu.qi)
+        self.qfc1.freeze(qi=self.qblock4_2.qrelu.qi)
+        self.qrelu.freeze(qi=self.qblock4_2.qrelu.qi)
+        self.qfc2.freeze(qi=self.qrelu.qi)
 
 
     def quantize_inference(self, x):
         qx = self.qconv1.qi.quantize_tensor(x)
-        
+        # print(qx)
         qx = self.qconv1.quantize_inference(qx)
-        qx = self.qmaxpool2d_1.quantize_inference(qx)
         
+        # print("qconv1 output: ",qx)
+        qx = self.qmaxpool2d_1.quantize_inference(qx)
+        # print(qx)
         qx = self.qblock1_1.quantize_inference(qx)
+        print("block1_1: ", qx)
         qx = self.qblock1_2.quantize_inference(qx)
+        print("block1_2: ", qx)
         qx = self.qblock2_1.quantize_inference(qx)
+        # print("block2_1: ", qx)
         qx = self.qblock2_2.quantize_inference(qx)
         qx = self.qblock3_1.quantize_inference(qx)
         qx = self.qblock3_2.quantize_inference(qx)
         qx = self.qblock4_1.quantize_inference(qx)
         qx = self.qblock4_2.quantize_inference(qx)
-
+        # print("adaptivepool input: ", qx)
         qx = self.qadaptive_avg_pool2d.quantize_inference(qx)
+        # print("adaptivepool: ", qx)
         qx = qx.reshape(x.shape[0], -1)
+        # print("reshape: ", qx)
         qx = self.qfc1.quantize_inference(qx)
+        # print("qfc1: ", qx)
         qx = self.qrelu.quantize_inference(qx)
+        print("qfc2 input: ", qx)
         qx = self.qfc2.quantize_inference(qx)
+        print("qfc2: ", qx)
+        
         out = self.qfc2.qo.dequantize_tensor(qx)
 
-        return out 
+        return out
