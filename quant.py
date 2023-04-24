@@ -86,6 +86,7 @@ def test(num_bits):
     # quantize_inference(model, test_loader)
 
     print("\naverage inference time is : {:.4f} ms".format( (t2 - t1) * 1000 / 10000 ))
+    print(t2 - t1)
 
 if __name__ == "__main__":
     test(8)
