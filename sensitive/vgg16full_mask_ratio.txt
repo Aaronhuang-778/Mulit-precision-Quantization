@@ -1,0 +1,785 @@
+Full precision accuracy is: 76.66666666666667
+---------------------------------------------------------
+Mask: key= features.stage1.unit1.conv.weight------0.875
+Test set: Mask Model Accuracy: 63.33%
+
+layer_name : features.stage1.unit1.conv.weight;  mask ratio : 0.875;
+KL divergency : 6.5144367
+---------------------------------------------------------
+Mask: key= features.stage1.unit1.conv.weight------0.75
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage1.unit1.conv.weight;  mask ratio : 0.75;
+KL divergency : 6.3376017
+---------------------------------------------------------
+Mask: key= features.stage1.unit1.conv.weight------0.625
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : features.stage1.unit1.conv.weight;  mask ratio : 0.625;
+KL divergency : 6.5350623
+---------------------------------------------------------
+Mask: key= features.stage1.unit1.conv.weight------0.5
+Test set: Mask Model Accuracy: 63.33%
+
+layer_name : features.stage1.unit1.conv.weight;  mask ratio : 0.5;
+KL divergency : 6.394325
+---------------------------------------------------------
+Mask: key= features.stage1.unit1.conv.weight------0.375
+Test set: Mask Model Accuracy: 63.33%
+
+layer_name : features.stage1.unit1.conv.weight;  mask ratio : 0.375;
+KL divergency : 6.134054
+---------------------------------------------------------
+Mask: key= features.stage1.unit1.conv.weight------0.25
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : features.stage1.unit1.conv.weight;  mask ratio : 0.25;
+KL divergency : 6.751283
+---------------------------------------------------------
+Mask: key= features.stage1.unit1.conv.weight------0.125
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : features.stage1.unit1.conv.weight;  mask ratio : 0.125;
+KL divergency : 6.402052
+---------------------------------------------------------
+Mask: key= features.stage1.unit1.conv.weight------0
+Test set: Mask Model Accuracy: 56.67%
+
+layer_name : features.stage1.unit1.conv.weight;  mask ratio : 0;
+KL divergency : 6.449798
+---------------------------------------------------------
+---------------------------------------------------------
+Mask: key= features.stage1.unit2.conv.weight------0.875
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : features.stage1.unit2.conv.weight;  mask ratio : 0.875;
+KL divergency : 6.43956
+---------------------------------------------------------
+Mask: key= features.stage1.unit2.conv.weight------0.75
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : features.stage1.unit2.conv.weight;  mask ratio : 0.75;
+KL divergency : 6.9216022
+---------------------------------------------------------
+Mask: key= features.stage1.unit2.conv.weight------0.625
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage1.unit2.conv.weight;  mask ratio : 0.625;
+KL divergency : 6.2108164
+---------------------------------------------------------
+Mask: key= features.stage1.unit2.conv.weight------0.5
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : features.stage1.unit2.conv.weight;  mask ratio : 0.5;
+KL divergency : 6.0761194
+---------------------------------------------------------
+Mask: key= features.stage1.unit2.conv.weight------0.375
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage1.unit2.conv.weight;  mask ratio : 0.375;
+KL divergency : 6.4670396
+---------------------------------------------------------
+Mask: key= features.stage1.unit2.conv.weight------0.25
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : features.stage1.unit2.conv.weight;  mask ratio : 0.25;
+KL divergency : 6.9667134
+---------------------------------------------------------
+Mask: key= features.stage1.unit2.conv.weight------0.125
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : features.stage1.unit2.conv.weight;  mask ratio : 0.125;
+KL divergency : 6.535711
+---------------------------------------------------------
+Mask: key= features.stage1.unit2.conv.weight------0
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : features.stage1.unit2.conv.weight;  mask ratio : 0;
+KL divergency : 6.477503
+---------------------------------------------------------
+---------------------------------------------------------
+Mask: key= features.stage2.unit1.conv.weight------0.875
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage2.unit1.conv.weight;  mask ratio : 0.875;
+KL divergency : 6.3922048
+---------------------------------------------------------
+Mask: key= features.stage2.unit1.conv.weight------0.75
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : features.stage2.unit1.conv.weight;  mask ratio : 0.75;
+KL divergency : 6.6711597
+---------------------------------------------------------
+Mask: key= features.stage2.unit1.conv.weight------0.625
+Test set: Mask Model Accuracy: 63.33%
+
+layer_name : features.stage2.unit1.conv.weight;  mask ratio : 0.625;
+KL divergency : 6.334627
+---------------------------------------------------------
+Mask: key= features.stage2.unit1.conv.weight------0.5
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage2.unit1.conv.weight;  mask ratio : 0.5;
+KL divergency : 6.5273867
+---------------------------------------------------------
+Mask: key= features.stage2.unit1.conv.weight------0.375
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : features.stage2.unit1.conv.weight;  mask ratio : 0.375;
+KL divergency : 6.34967
+---------------------------------------------------------
+Mask: key= features.stage2.unit1.conv.weight------0.25
+Test set: Mask Model Accuracy: 63.33%
+
+layer_name : features.stage2.unit1.conv.weight;  mask ratio : 0.25;
+KL divergency : 6.3038797
+---------------------------------------------------------
+Mask: key= features.stage2.unit1.conv.weight------0.125
+Test set: Mask Model Accuracy: 60.00%
+
+layer_name : features.stage2.unit1.conv.weight;  mask ratio : 0.125;
+KL divergency : 6.211462
+---------------------------------------------------------
+Mask: key= features.stage2.unit1.conv.weight------0
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : features.stage2.unit1.conv.weight;  mask ratio : 0;
+KL divergency : 6.5232654
+---------------------------------------------------------
+---------------------------------------------------------
+Mask: key= features.stage2.unit2.conv.weight------0.875
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : features.stage2.unit2.conv.weight;  mask ratio : 0.875;
+KL divergency : 6.5072145
+---------------------------------------------------------
+Mask: key= features.stage2.unit2.conv.weight------0.75
+Test set: Mask Model Accuracy: 63.33%
+
+layer_name : features.stage2.unit2.conv.weight;  mask ratio : 0.75;
+KL divergency : 6.2524586
+---------------------------------------------------------
+Mask: key= features.stage2.unit2.conv.weight------0.625
+Test set: Mask Model Accuracy: 63.33%
+
+layer_name : features.stage2.unit2.conv.weight;  mask ratio : 0.625;
+KL divergency : 6.4293704
+---------------------------------------------------------
+Mask: key= features.stage2.unit2.conv.weight------0.5
+Test set: Mask Model Accuracy: 66.67%
+
+layer_name : features.stage2.unit2.conv.weight;  mask ratio : 0.5;
+KL divergency : 6.1743765
+---------------------------------------------------------
+Mask: key= features.stage2.unit2.conv.weight------0.375
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage2.unit2.conv.weight;  mask ratio : 0.375;
+KL divergency : 6.3260956
+---------------------------------------------------------
+Mask: key= features.stage2.unit2.conv.weight------0.25
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : features.stage2.unit2.conv.weight;  mask ratio : 0.25;
+KL divergency : 6.2114644
+---------------------------------------------------------
+Mask: key= features.stage2.unit2.conv.weight------0.125
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : features.stage2.unit2.conv.weight;  mask ratio : 0.125;
+KL divergency : 6.3369355
+---------------------------------------------------------
+Mask: key= features.stage2.unit2.conv.weight------0
+Test set: Mask Model Accuracy: 63.33%
+
+layer_name : features.stage2.unit2.conv.weight;  mask ratio : 0;
+KL divergency : 6.3690352
+---------------------------------------------------------
+---------------------------------------------------------
+Mask: key= features.stage3.unit1.conv.weight------0.875
+Test set: Mask Model Accuracy: 83.33%
+
+layer_name : features.stage3.unit1.conv.weight;  mask ratio : 0.875;
+KL divergency : 6.3264527
+---------------------------------------------------------
+Mask: key= features.stage3.unit1.conv.weight------0.75
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage3.unit1.conv.weight;  mask ratio : 0.75;
+KL divergency : 6.4106884
+---------------------------------------------------------
+Mask: key= features.stage3.unit1.conv.weight------0.625
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage3.unit1.conv.weight;  mask ratio : 0.625;
+KL divergency : 6.130311
+---------------------------------------------------------
+Mask: key= features.stage3.unit1.conv.weight------0.5
+Test set: Mask Model Accuracy: 83.33%
+
+layer_name : features.stage3.unit1.conv.weight;  mask ratio : 0.5;
+KL divergency : 6.459422
+---------------------------------------------------------
+Mask: key= features.stage3.unit1.conv.weight------0.375
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : features.stage3.unit1.conv.weight;  mask ratio : 0.375;
+KL divergency : 6.7824035
+---------------------------------------------------------
+Mask: key= features.stage3.unit1.conv.weight------0.25
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage3.unit1.conv.weight;  mask ratio : 0.25;
+KL divergency : 6.3733544
+---------------------------------------------------------
+Mask: key= features.stage3.unit1.conv.weight------0.125
+Test set: Mask Model Accuracy: 83.33%
+
+layer_name : features.stage3.unit1.conv.weight;  mask ratio : 0.125;
+KL divergency : 6.4472146
+---------------------------------------------------------
+Mask: key= features.stage3.unit1.conv.weight------0
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage3.unit1.conv.weight;  mask ratio : 0;
+KL divergency : 6.6906953
+---------------------------------------------------------
+---------------------------------------------------------
+Mask: key= features.stage3.unit2.conv.weight------0.875
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage3.unit2.conv.weight;  mask ratio : 0.875;
+KL divergency : 6.8080344
+---------------------------------------------------------
+Mask: key= features.stage3.unit2.conv.weight------0.75
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage3.unit2.conv.weight;  mask ratio : 0.75;
+KL divergency : 6.6071067
+---------------------------------------------------------
+Mask: key= features.stage3.unit2.conv.weight------0.625
+Test set: Mask Model Accuracy: 66.67%
+
+layer_name : features.stage3.unit2.conv.weight;  mask ratio : 0.625;
+KL divergency : 6.404881
+---------------------------------------------------------
+Mask: key= features.stage3.unit2.conv.weight------0.5
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : features.stage3.unit2.conv.weight;  mask ratio : 0.5;
+KL divergency : 6.1523595
+---------------------------------------------------------
+Mask: key= features.stage3.unit2.conv.weight------0.375
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage3.unit2.conv.weight;  mask ratio : 0.375;
+KL divergency : 6.076139
+---------------------------------------------------------
+Mask: key= features.stage3.unit2.conv.weight------0.25
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : features.stage3.unit2.conv.weight;  mask ratio : 0.25;
+KL divergency : 6.6152663
+---------------------------------------------------------
+Mask: key= features.stage3.unit2.conv.weight------0.125
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage3.unit2.conv.weight;  mask ratio : 0.125;
+KL divergency : 6.4784427
+---------------------------------------------------------
+Mask: key= features.stage3.unit2.conv.weight------0
+Test set: Mask Model Accuracy: 66.67%
+
+layer_name : features.stage3.unit2.conv.weight;  mask ratio : 0;
+KL divergency : 6.2403793
+---------------------------------------------------------
+---------------------------------------------------------
+Mask: key= features.stage3.unit3.conv.weight------0.875
+Test set: Mask Model Accuracy: 86.67%
+
+layer_name : features.stage3.unit3.conv.weight;  mask ratio : 0.875;
+KL divergency : 6.344895
+---------------------------------------------------------
+Mask: key= features.stage3.unit3.conv.weight------0.75
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : features.stage3.unit3.conv.weight;  mask ratio : 0.75;
+KL divergency : 6.548041
+---------------------------------------------------------
+Mask: key= features.stage3.unit3.conv.weight------0.625
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : features.stage3.unit3.conv.weight;  mask ratio : 0.625;
+KL divergency : 6.463457
+---------------------------------------------------------
+Mask: key= features.stage3.unit3.conv.weight------0.5
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage3.unit3.conv.weight;  mask ratio : 0.5;
+KL divergency : 6.223601
+---------------------------------------------------------
+Mask: key= features.stage3.unit3.conv.weight------0.375
+Test set: Mask Model Accuracy: 66.67%
+
+layer_name : features.stage3.unit3.conv.weight;  mask ratio : 0.375;
+KL divergency : 6.478662
+---------------------------------------------------------
+Mask: key= features.stage3.unit3.conv.weight------0.25
+Test set: Mask Model Accuracy: 66.67%
+
+layer_name : features.stage3.unit3.conv.weight;  mask ratio : 0.25;
+KL divergency : 6.385562
+---------------------------------------------------------
+Mask: key= features.stage3.unit3.conv.weight------0.125
+Test set: Mask Model Accuracy: 83.33%
+
+layer_name : features.stage3.unit3.conv.weight;  mask ratio : 0.125;
+KL divergency : 6.3199615
+---------------------------------------------------------
+Mask: key= features.stage3.unit3.conv.weight------0
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage3.unit3.conv.weight;  mask ratio : 0;
+KL divergency : 6.5169435
+---------------------------------------------------------
+---------------------------------------------------------
+Mask: key= features.stage4.unit1.conv.weight------0.875
+Test set: Mask Model Accuracy: 66.67%
+
+layer_name : features.stage4.unit1.conv.weight;  mask ratio : 0.875;
+KL divergency : 6.3848176
+---------------------------------------------------------
+Mask: key= features.stage4.unit1.conv.weight------0.75
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : features.stage4.unit1.conv.weight;  mask ratio : 0.75;
+KL divergency : 6.305961
+---------------------------------------------------------
+Mask: key= features.stage4.unit1.conv.weight------0.625
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : features.stage4.unit1.conv.weight;  mask ratio : 0.625;
+KL divergency : 6.3142595
+---------------------------------------------------------
+Mask: key= features.stage4.unit1.conv.weight------0.5
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage4.unit1.conv.weight;  mask ratio : 0.5;
+KL divergency : 6.270738
+---------------------------------------------------------
+Mask: key= features.stage4.unit1.conv.weight------0.375
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage4.unit1.conv.weight;  mask ratio : 0.375;
+KL divergency : 6.4193497
+---------------------------------------------------------
+Mask: key= features.stage4.unit1.conv.weight------0.25
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage4.unit1.conv.weight;  mask ratio : 0.25;
+KL divergency : 6.48314
+---------------------------------------------------------
+Mask: key= features.stage4.unit1.conv.weight------0.125
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage4.unit1.conv.weight;  mask ratio : 0.125;
+KL divergency : 6.280911
+---------------------------------------------------------
+Mask: key= features.stage4.unit1.conv.weight------0
+Test set: Mask Model Accuracy: 60.00%
+
+layer_name : features.stage4.unit1.conv.weight;  mask ratio : 0;
+KL divergency : 6.5308576
+---------------------------------------------------------
+---------------------------------------------------------
+Mask: key= features.stage4.unit2.conv.weight------0.875
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage4.unit2.conv.weight;  mask ratio : 0.875;
+KL divergency : 6.52896
+---------------------------------------------------------
+Mask: key= features.stage4.unit2.conv.weight------0.75
+Test set: Mask Model Accuracy: 83.33%
+
+layer_name : features.stage4.unit2.conv.weight;  mask ratio : 0.75;
+KL divergency : 6.5097065
+---------------------------------------------------------
+Mask: key= features.stage4.unit2.conv.weight------0.625
+Test set: Mask Model Accuracy: 66.67%
+
+layer_name : features.stage4.unit2.conv.weight;  mask ratio : 0.625;
+KL divergency : 6.475663
+---------------------------------------------------------
+Mask: key= features.stage4.unit2.conv.weight------0.5
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage4.unit2.conv.weight;  mask ratio : 0.5;
+KL divergency : 6.5131507
+---------------------------------------------------------
+Mask: key= features.stage4.unit2.conv.weight------0.375
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage4.unit2.conv.weight;  mask ratio : 0.375;
+KL divergency : 6.488471
+---------------------------------------------------------
+Mask: key= features.stage4.unit2.conv.weight------0.25
+Test set: Mask Model Accuracy: 60.00%
+
+layer_name : features.stage4.unit2.conv.weight;  mask ratio : 0.25;
+KL divergency : 6.312307
+---------------------------------------------------------
+Mask: key= features.stage4.unit2.conv.weight------0.125
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage4.unit2.conv.weight;  mask ratio : 0.125;
+KL divergency : 6.3532557
+---------------------------------------------------------
+Mask: key= features.stage4.unit2.conv.weight------0
+Test set: Mask Model Accuracy: 93.33%
+
+layer_name : features.stage4.unit2.conv.weight;  mask ratio : 0;
+KL divergency : 6.5656643
+---------------------------------------------------------
+---------------------------------------------------------
+Mask: key= features.stage4.unit3.conv.weight------0.875
+Test set: Mask Model Accuracy: 93.33%
+
+layer_name : features.stage4.unit3.conv.weight;  mask ratio : 0.875;
+KL divergency : 6.4551687
+---------------------------------------------------------
+Mask: key= features.stage4.unit3.conv.weight------0.75
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : features.stage4.unit3.conv.weight;  mask ratio : 0.75;
+KL divergency : 6.88854
+---------------------------------------------------------
+Mask: key= features.stage4.unit3.conv.weight------0.625
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage4.unit3.conv.weight;  mask ratio : 0.625;
+KL divergency : 6.318162
+---------------------------------------------------------
+Mask: key= features.stage4.unit3.conv.weight------0.5
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : features.stage4.unit3.conv.weight;  mask ratio : 0.5;
+KL divergency : 6.7221937
+---------------------------------------------------------
+Mask: key= features.stage4.unit3.conv.weight------0.375
+Test set: Mask Model Accuracy: 66.67%
+
+layer_name : features.stage4.unit3.conv.weight;  mask ratio : 0.375;
+KL divergency : 6.3948984
+---------------------------------------------------------
+Mask: key= features.stage4.unit3.conv.weight------0.25
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage4.unit3.conv.weight;  mask ratio : 0.25;
+KL divergency : 6.4625945
+---------------------------------------------------------
+Mask: key= features.stage4.unit3.conv.weight------0.125
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage4.unit3.conv.weight;  mask ratio : 0.125;
+KL divergency : 6.6059313
+---------------------------------------------------------
+Mask: key= features.stage4.unit3.conv.weight------0
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage4.unit3.conv.weight;  mask ratio : 0;
+KL divergency : 6.295331
+---------------------------------------------------------
+---------------------------------------------------------
+Mask: key= features.stage5.unit1.conv.weight------0.875
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage5.unit1.conv.weight;  mask ratio : 0.875;
+KL divergency : 6.6696124
+---------------------------------------------------------
+Mask: key= features.stage5.unit1.conv.weight------0.75
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage5.unit1.conv.weight;  mask ratio : 0.75;
+KL divergency : 6.3072677
+---------------------------------------------------------
+Mask: key= features.stage5.unit1.conv.weight------0.625
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage5.unit1.conv.weight;  mask ratio : 0.625;
+KL divergency : 6.12194
+---------------------------------------------------------
+Mask: key= features.stage5.unit1.conv.weight------0.5
+Test set: Mask Model Accuracy: 60.00%
+
+layer_name : features.stage5.unit1.conv.weight;  mask ratio : 0.5;
+KL divergency : 6.4141746
+---------------------------------------------------------
+Mask: key= features.stage5.unit1.conv.weight------0.375
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage5.unit1.conv.weight;  mask ratio : 0.375;
+KL divergency : 6.449982
+---------------------------------------------------------
+Mask: key= features.stage5.unit1.conv.weight------0.25
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage5.unit1.conv.weight;  mask ratio : 0.25;
+KL divergency : 6.4553943
+---------------------------------------------------------
+Mask: key= features.stage5.unit1.conv.weight------0.125
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage5.unit1.conv.weight;  mask ratio : 0.125;
+KL divergency : 6.1776013
+---------------------------------------------------------
+Mask: key= features.stage5.unit1.conv.weight------0
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage5.unit1.conv.weight;  mask ratio : 0;
+KL divergency : 6.7136307
+---------------------------------------------------------
+---------------------------------------------------------
+Mask: key= features.stage5.unit2.conv.weight------0.875
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : features.stage5.unit2.conv.weight;  mask ratio : 0.875;
+KL divergency : 6.055132
+---------------------------------------------------------
+Mask: key= features.stage5.unit2.conv.weight------0.75
+Test set: Mask Model Accuracy: 66.67%
+
+layer_name : features.stage5.unit2.conv.weight;  mask ratio : 0.75;
+KL divergency : 6.27749
+---------------------------------------------------------
+Mask: key= features.stage5.unit2.conv.weight------0.625
+Test set: Mask Model Accuracy: 83.33%
+
+layer_name : features.stage5.unit2.conv.weight;  mask ratio : 0.625;
+KL divergency : 6.7452617
+---------------------------------------------------------
+Mask: key= features.stage5.unit2.conv.weight------0.5
+Test set: Mask Model Accuracy: 66.67%
+
+layer_name : features.stage5.unit2.conv.weight;  mask ratio : 0.5;
+KL divergency : 6.6401477
+---------------------------------------------------------
+Mask: key= features.stage5.unit2.conv.weight------0.375
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage5.unit2.conv.weight;  mask ratio : 0.375;
+KL divergency : 6.345205
+---------------------------------------------------------
+Mask: key= features.stage5.unit2.conv.weight------0.25
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage5.unit2.conv.weight;  mask ratio : 0.25;
+KL divergency : 6.1227536
+---------------------------------------------------------
+Mask: key= features.stage5.unit2.conv.weight------0.125
+Test set: Mask Model Accuracy: 66.67%
+
+layer_name : features.stage5.unit2.conv.weight;  mask ratio : 0.125;
+KL divergency : 6.352212
+---------------------------------------------------------
+Mask: key= features.stage5.unit2.conv.weight------0
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage5.unit2.conv.weight;  mask ratio : 0;
+KL divergency : 6.057849
+---------------------------------------------------------
+---------------------------------------------------------
+Mask: key= features.stage5.unit3.conv.weight------0.875
+Test set: Mask Model Accuracy: 66.67%
+
+layer_name : features.stage5.unit3.conv.weight;  mask ratio : 0.875;
+KL divergency : 6.6194677
+---------------------------------------------------------
+Mask: key= features.stage5.unit3.conv.weight------0.75
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : features.stage5.unit3.conv.weight;  mask ratio : 0.75;
+KL divergency : 6.653003
+---------------------------------------------------------
+Mask: key= features.stage5.unit3.conv.weight------0.625
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage5.unit3.conv.weight;  mask ratio : 0.625;
+KL divergency : 6.6514416
+---------------------------------------------------------
+Mask: key= features.stage5.unit3.conv.weight------0.5
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : features.stage5.unit3.conv.weight;  mask ratio : 0.5;
+KL divergency : 6.5883074
+---------------------------------------------------------
+Mask: key= features.stage5.unit3.conv.weight------0.375
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : features.stage5.unit3.conv.weight;  mask ratio : 0.375;
+KL divergency : 6.650954
+---------------------------------------------------------
+Mask: key= features.stage5.unit3.conv.weight------0.25
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : features.stage5.unit3.conv.weight;  mask ratio : 0.25;
+KL divergency : 6.728825
+---------------------------------------------------------
+Mask: key= features.stage5.unit3.conv.weight------0.125
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : features.stage5.unit3.conv.weight;  mask ratio : 0.125;
+KL divergency : 6.1303687
+---------------------------------------------------------
+Mask: key= features.stage5.unit3.conv.weight------0
+Test set: Mask Model Accuracy: 66.67%
+
+layer_name : features.stage5.unit3.conv.weight;  mask ratio : 0;
+KL divergency : 6.0255675
+---------------------------------------------------------
+---------------------------------------------------------
+Mask: key= output.fc1.fc.weight------0.875
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : output.fc1.fc.weight;  mask ratio : 0.875;
+KL divergency : 6.494439
+---------------------------------------------------------
+Mask: key= output.fc1.fc.weight------0.75
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : output.fc1.fc.weight;  mask ratio : 0.75;
+KL divergency : 6.216619
+---------------------------------------------------------
+Mask: key= output.fc1.fc.weight------0.625
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : output.fc1.fc.weight;  mask ratio : 0.625;
+KL divergency : 6.6625915
+---------------------------------------------------------
+Mask: key= output.fc1.fc.weight------0.5
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : output.fc1.fc.weight;  mask ratio : 0.5;
+KL divergency : 6.6013584
+---------------------------------------------------------
+Mask: key= output.fc1.fc.weight------0.375
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : output.fc1.fc.weight;  mask ratio : 0.375;
+KL divergency : 6.2637043
+---------------------------------------------------------
+Mask: key= output.fc1.fc.weight------0.25
+Test set: Mask Model Accuracy: 66.67%
+
+layer_name : output.fc1.fc.weight;  mask ratio : 0.25;
+KL divergency : 6.526556
+---------------------------------------------------------
+Mask: key= output.fc1.fc.weight------0.125
+Test set: Mask Model Accuracy: 66.67%
+
+layer_name : output.fc1.fc.weight;  mask ratio : 0.125;
+KL divergency : 6.200028
+---------------------------------------------------------
+Mask: key= output.fc1.fc.weight------0
+Test set: Mask Model Accuracy: 83.33%
+
+layer_name : output.fc1.fc.weight;  mask ratio : 0;
+KL divergency : 6.4756365
+---------------------------------------------------------
+---------------------------------------------------------
+Mask: key= output.fc2.fc.weight------0.875
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : output.fc2.fc.weight;  mask ratio : 0.875;
+KL divergency : 6.469076
+---------------------------------------------------------
+Mask: key= output.fc2.fc.weight------0.75
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : output.fc2.fc.weight;  mask ratio : 0.75;
+KL divergency : 6.501335
+---------------------------------------------------------
+Mask: key= output.fc2.fc.weight------0.625
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : output.fc2.fc.weight;  mask ratio : 0.625;
+KL divergency : 6.6614738
+---------------------------------------------------------
+Mask: key= output.fc2.fc.weight------0.5
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : output.fc2.fc.weight;  mask ratio : 0.5;
+KL divergency : 6.476938
+---------------------------------------------------------
+Mask: key= output.fc2.fc.weight------0.375
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : output.fc2.fc.weight;  mask ratio : 0.375;
+KL divergency : 6.285167
+---------------------------------------------------------
+Mask: key= output.fc2.fc.weight------0.25
+Test set: Mask Model Accuracy: 63.33%
+
+layer_name : output.fc2.fc.weight;  mask ratio : 0.25;
+KL divergency : 6.577724
+---------------------------------------------------------
+Mask: key= output.fc2.fc.weight------0.125
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : output.fc2.fc.weight;  mask ratio : 0.125;
+KL divergency : 6.485893
+---------------------------------------------------------
+Mask: key= output.fc2.fc.weight------0
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : output.fc2.fc.weight;  mask ratio : 0;
+KL divergency : 6.5615253
+---------------------------------------------------------
+---------------------------------------------------------
+Mask: key= output.fc3.weight------0.875
+Test set: Mask Model Accuracy: 70.00%
+
+layer_name : output.fc3.weight;  mask ratio : 0.875;
+KL divergency : 6.377344
+---------------------------------------------------------
+Mask: key= output.fc3.weight------0.75
+Test set: Mask Model Accuracy: 60.00%
+
+layer_name : output.fc3.weight;  mask ratio : 0.75;
+KL divergency : 6.1676183
+---------------------------------------------------------
+Mask: key= output.fc3.weight------0.625
+Test set: Mask Model Accuracy: 73.33%
+
+layer_name : output.fc3.weight;  mask ratio : 0.625;
+KL divergency : 6.415785
+---------------------------------------------------------
+Mask: key= output.fc3.weight------0.5
+Test set: Mask Model Accuracy: 76.67%
+
+layer_name : output.fc3.weight;  mask ratio : 0.5;
+KL divergency : 6.153156
+---------------------------------------------------------
+Mask: key= output.fc3.weight------0.375
+Test set: Mask Model Accuracy: 63.33%
+
+layer_name : output.fc3.weight;  mask ratio : 0.375;
+KL divergency : 6.2498956
+---------------------------------------------------------
+Mask: key= output.fc3.weight------0.25
+Test set: Mask Model Accuracy: 80.00%
+
+layer_name : output.fc3.weight;  mask ratio : 0.25;
+KL divergency : 6.6030517
+---------------------------------------------------------
+Mask: key= output.fc3.weight------0.125
+Test set: Mask Model Accuracy: 63.33%
+
+layer_name : output.fc3.weight;  mask ratio : 0.125;
+KL divergency : 6.381959
+---------------------------------------------------------
+Mask: key= output.fc3.weight------0
+Test set: Mask Model Accuracy: 63.33%
+
+layer_name : output.fc3.weight;  mask ratio : 0;
+KL divergency : 6.682573
+---------------------------------------------------------
