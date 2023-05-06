@@ -1,0 +1,48 @@
+---------------------------------------------------------
+mask ratio : 0.75;
+layer name	KL divergency	accuracy
+features.init_block.conv.conv.weight	5.018907	4.0
+features.stage1.unit1.body.conv1.conv.weight	5.7878513	0.25
+features.stage1.unit1.body.conv2.conv.weight	5.3673987	1.25
+features.stage1.unit2.body.conv1.conv.weight	5.2994432	2.0
+features.stage1.unit2.body.conv2.conv.weight	3.2472618	16.5
+features.stage2.unit1.body.conv1.conv.weight	4.871642	1.75
+features.stage2.unit1.body.conv2.conv.weight	4.195145	4.0
+features.stage2.unit1.identity_conv.conv.weight	4.1269684	9.25
+features.stage2.unit2.body.conv1.conv.weight	4.264562	5.5
+features.stage2.unit2.body.conv2.conv.weight	2.7866101	19.5
+features.stage3.unit1.body.conv1.conv.weight	5.594698	0.5
+features.stage3.unit1.body.conv2.conv.weight	3.2917163	16.25
+features.stage3.unit1.identity_conv.conv.weight	0.2225112	65.0
+features.stage3.unit2.body.conv1.conv.weight	3.0001135	16.5
+features.stage3.unit2.body.conv2.conv.weight	1.2032942	49.5
+features.stage4.unit1.body.conv1.conv.weight	2.4997373	20.25
+features.stage4.unit1.body.conv2.conv.weight	1.1470802	47.0
+features.stage4.unit1.identity_conv.conv.weight	0.29183656	65.75
+features.stage4.unit2.body.conv1.conv.weight	2.2092462	37.25
+features.stage4.unit2.body.conv2.conv.weight	1.4374298	57.0
+output.weight	3.0632446	23.75
+---------------------------------------------------------
+mask ratio : 0.25;
+layer name	KL divergency	accuracy
+features.init_block.conv.conv.weight	1.88011	31.25
+features.stage1.unit1.body.conv1.conv.weight	2.4836357	25.0
+features.stage1.unit1.body.conv2.conv.weight	0.64050704	58.25
+features.stage1.unit2.body.conv1.conv.weight	1.1897855	46.25
+features.stage1.unit2.body.conv2.conv.weight	0.27088955	58.0
+features.stage2.unit1.body.conv1.conv.weight	0.47391307	59.25
+features.stage2.unit1.body.conv2.conv.weight	0.36409974	61.0
+features.stage2.unit1.identity_conv.conv.weight	0.5115706	57.5
+features.stage2.unit2.body.conv1.conv.weight	0.2710586	67.75
+features.stage2.unit2.body.conv2.conv.weight	0.10422718	69.0
+features.stage3.unit1.body.conv1.conv.weight	0.325914	67.5
+features.stage3.unit1.body.conv2.conv.weight	0.12342013	67.75
+features.stage3.unit1.identity_conv.conv.weight	0.04724658	71.25
+features.stage3.unit2.body.conv1.conv.weight	0.1370447	65.75
+features.stage3.unit2.body.conv2.conv.weight	0.075229764	68.75
+features.stage4.unit1.body.conv1.conv.weight	0.13205057	69.0
+features.stage4.unit1.body.conv2.conv.weight	0.095624775	69.5
+features.stage4.unit1.identity_conv.conv.weight	0.0875014	68.5
+features.stage4.unit2.body.conv1.conv.weight	0.18984699	67.25
+features.stage4.unit2.body.conv2.conv.weight	0.16995044	73.0
+output.weight	0.69202286	58.0

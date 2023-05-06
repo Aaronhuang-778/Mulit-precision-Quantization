@@ -16,12 +16,16 @@ from scipy import stats
 from functools import partial
 import copy
 from pytorchcv.model_provider import get_model as ptcv_get_model
+from resnet18 import Resnet18
 
-ratios = [0.75, 0.25]
+ratios = [1, 0.875, 0.75, 0.5, 0.25, 0.125]
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 total_results = []
-
-
+original_model = Resnet18()
+original_model.load_state_dict(torch.load('../modelfile/resnet18_2.pt', map_location='cpu'))
+print("-------------------Successfully load quantized model ---------------")
+original_model.eval()
+params = original_model.state_dict()
 
 def Flatten(x):
     original_shape = x.shape
@@ -52,15 +56,15 @@ def NormalInference(model, test, key='conv', ratio=0.2, mask=False):
         correct += pred.eq(target.view_as(pred)).sum().item()
 
     if not mask:
-                # print('Test set: Full Model Accuracy: {:.2f}%'.format(100. * correct / length))
+                print('\nTest set: Full Model Accuracy: {:.2f}%\n'.format(100. * correct / length))
                 return result, 100. * correct / length
             
     else:
-                # print('Test set: Mask Model Accuracy: {:.2f}%'.format(100. * correct / length))
+                print('Test set: Mask Model Accuracy: {:.2f}%\n'.format(100. * correct / length))
                 return result, 100. * correct / length
 
-def MaskInference(model_name, original_model, test_loader, key='conv', ratio=1, method=0):
-    params = original_model.state_dict()
+def MaskInference(test_loader, key='conv', ratio=1, method=0):
+    
     param_new = {}
     for i in params.keys():
         param_new[i] = params[i]
@@ -81,49 +85,40 @@ def MaskInference(model_name, original_model, test_loader, key='conv', ratio=1, 
     # model.state_dict()[key].data = torch.from_numpy(final_weight)
     param_new[key] = torch.from_numpy(unflatten(final_weight))
     
-    model = ptcv_get_model(model_name, pretrained=True)
+    model = Resnet18()
     model.load_state_dict(param_new)
     model.eval()
     return NormalInference(model, test_loader, key, ratio, True)
 
 
-def SensitiveTest(model_name, original_model, file_path):
+def SensitiveTest(test, original_results, file_path, original_accrucy):
     
     draws = []
    
     with open(file_path,'a') as f:
+        f.write('Full precision accuracy is: ' + str(original_accrucy) + "\n")
         for ratio in ratios:
             f.write('---------------------------------------------------------\n')
             f.write("mask ratio : " + str(ratio) +";\n")
             f.write("layer name" + "\t" + "KL divergency" + "\t" + "accuracy\n")
             layer = -1
             for name, param in original_model.named_parameters():
-                if ('conv' in name and 'weight' in name and 'bn' not in name) or ('conv' not in name and 'weight' in name and 'bn' not in name):
+                if ('conv' in name and 'weight' in name) or ('fc' in name and 'weight' in name):
                     layer += 1
+                
                     print("Test: ratio-" + str(ratio) + "; layer-" + name)
+                    mask_results, accuracy = MaskInference(test, name, ratio)
+                    
                     dl_results = []
-                    accuracys = []
-                    original_accuracys = []
-                    for itr in range(20):
-                        if model_name == "inceptionv3":
-                                test = get_data(299)
-                        else: test = get_data(224)
-                        
-                        original_results, accuracy = NormalInference(original_model, test)
-                        original_accuracys.append(accuracy) 
-                        mask_results, accuracy1 = MaskInference(model_name, original_model, test, name, ratio)
-                        accuracys.append(accuracy1)
-                        for i in range(len(original_results)):
-                            original_outputs = original_results[i][0].detach().numpy()
-                            mask_outputs = mask_results[i][0].detach().numpy()
-                            dl_results.append(stats.entropy(original_outputs, mask_outputs))
+                    for i in range(len(original_results)):
+                        original_outputs = original_results[i][0].detach().numpy()
+                        mask_outputs = mask_results[i][0].detach().numpy()
+                        dl_results.append(stats.entropy(original_outputs, mask_outputs))
                     mean_kl = np.mean(dl_results)
                     push_list = [ratios.index(ratio), layer, mean_kl]
-                    print("KL divergency: " + str(mean_kl))
                     total_results.append(push_list)
-                    accuracy = np.mean(accuracys)
-                    print("accuracy : " + str(accuracy) + "\n")
                     f.write(name + "\t" +  str(mean_kl) + "\t" + str(accuracy) + "\n")
+                
 # def SensitiveTest(model, test_loader, original_results):
 #     name = "fc1.weight"
 #     for ratio in ratios:
@@ -143,17 +138,25 @@ def SensitiveTest(model_name, original_model, file_path):
 #         print("layer_name : " + name + ";  mask ratio : " + str(ratio) + ";")
 #         print("KL divergency : " + str(mean_kl) + "\n")            
 def get_data(size):
-    normalize = transforms.Normalize((0.4802, 0.4481, 0.3975), (0.2770, 0.2691, 0.2821))
-
-    transform_test = transforms.Compose([transforms.Resize(size), transforms.RandomCrop(size),transforms.ToTensor(), normalize])
-    testset = datasets.ImageFolder(root='../../../../data/ILSVRC2012_img_val', transform=transform_test)
-    test_loader = torch.utils.data.DataLoader(testset, batch_size=1, shuffle=True, pin_memory=True)
-
+    data_transform = {                      # 数据预处理
+        "train": transforms.Compose([
+            transforms.RandomCrop(32, padding=4),  #先四周填充0，在吧图像随机裁剪成32*32
+            transforms.RandomHorizontalFlip(),  #图像一半的概率翻转，一半的概率不翻转
+            transforms.ToTensor(),
+            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)) #R,G,B每层的归一化用到的均值和方差
+        ]),
+        "val": transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+        ])
+    }
+    test_data = datasets.CIFAR10(root='../../../../data/', train=False, transform=data_transform["val"], download=False)
+    test_loader = torch.utils.data.DataLoader(test_data, 1, True, num_workers=0)
     test = []
     for i, (data, target) in enumerate(test_loader, 1):
         a = [i, data, target]
         test.append(a)
-        if i == 20:
+        if i == 500:
             break
     
     return test
@@ -161,13 +164,13 @@ def get_data(size):
     
 if __name__ == '__main__':
     
-    net_list = ['resnet18', 'resnet50', 'resnet101', 'inceptionv3', 'mobilenet_w1']
     
-    
-    for model_name in net_list:
-        model = ptcv_get_model(model_name, pretrained=True)
-        print("-------------------Successfully load quantized model %s---------------" % model_name)
-        model.eval()
+    test = get_data(224)
         
-        file_path = model_name + '_imagenet_full_mask_ratio.txt'
-        SensitiveTest(model_name, model, file_path)
+    file_path ='resnet18_cifar_full_mask_ratio.txt'
+    original_results, accrucy= NormalInference(original_model, test)
+    SensitiveTest(test, original_results, file_path, accrucy)
+    print(total_results)
+    
+
+        

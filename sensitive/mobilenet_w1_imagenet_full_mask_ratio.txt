@@ -1,0 +1,62 @@
+---------------------------------------------------------
+mask ratio : 0.75;
+layer name	KL divergency	accuracy
+features.init_block.conv.weight	3.1218817	19.0
+features.stage1.unit1.dw_conv.conv.weight	6.496744	0.25
+features.stage1.unit1.pw_conv.conv.weight	6.098519	0.0
+features.stage2.unit1.dw_conv.conv.weight	5.9356217	1.0
+features.stage2.unit1.pw_conv.conv.weight	5.7886424	0.0
+features.stage2.unit2.dw_conv.conv.weight	6.424383	0.25
+features.stage2.unit2.pw_conv.conv.weight	5.588153	0.0
+features.stage3.unit1.dw_conv.conv.weight	5.5560436	0.25
+features.stage3.unit1.pw_conv.conv.weight	5.802069	0.0
+features.stage3.unit2.dw_conv.conv.weight	6.052931	0.25
+features.stage3.unit2.pw_conv.conv.weight	5.559731	0.0
+features.stage4.unit1.dw_conv.conv.weight	6.7447424	0.0
+features.stage4.unit1.pw_conv.conv.weight	5.648668	0.0
+features.stage4.unit2.dw_conv.conv.weight	6.7227116	0.0
+features.stage4.unit2.pw_conv.conv.weight	6.5781994	0.0
+features.stage4.unit3.dw_conv.conv.weight	7.3813734	0.25
+features.stage4.unit3.pw_conv.conv.weight	5.5646644	0.25
+features.stage4.unit4.dw_conv.conv.weight	5.7281814	1.0
+features.stage4.unit4.pw_conv.conv.weight	5.2425184	0.0
+features.stage4.unit5.dw_conv.conv.weight	5.4549828	0.5
+features.stage4.unit5.pw_conv.conv.weight	5.3997426	0.0
+features.stage4.unit6.dw_conv.conv.weight	9.6769705	0.75
+features.stage4.unit6.pw_conv.conv.weight	7.383501	0.0
+features.stage5.unit1.dw_conv.conv.weight	4.9711637	0.5
+features.stage5.unit1.pw_conv.conv.weight	7.5440383	0.25
+features.stage5.unit2.dw_conv.conv.weight	3.8356838	30.25
+features.stage5.unit2.pw_conv.conv.weight	17.323793	0.0
+output.weight	3.418688	19.5
+---------------------------------------------------------
+mask ratio : 0.25;
+layer name	KL divergency	accuracy
+features.init_block.conv.weight	0.480099	64.5
+features.stage1.unit1.dw_conv.conv.weight	6.172773	0.75
+features.stage1.unit1.pw_conv.conv.weight	6.196291	1.25
+features.stage2.unit1.dw_conv.conv.weight	1.781024	39.0
+features.stage2.unit1.pw_conv.conv.weight	3.1511114	17.25
+features.stage2.unit2.dw_conv.conv.weight	4.979348	4.75
+features.stage2.unit2.pw_conv.conv.weight	5.2327266	3.0
+features.stage3.unit1.dw_conv.conv.weight	0.3986107	62.0
+features.stage3.unit1.pw_conv.conv.weight	3.308855	17.25
+features.stage3.unit2.dw_conv.conv.weight	4.060092	8.0
+features.stage3.unit2.pw_conv.conv.weight	3.302951	17.5
+features.stage4.unit1.dw_conv.conv.weight	0.23373626	66.0
+features.stage4.unit1.pw_conv.conv.weight	1.530293	41.0
+features.stage4.unit2.dw_conv.conv.weight	2.1765366	32.25
+features.stage4.unit2.pw_conv.conv.weight	1.1630616	51.75
+features.stage4.unit3.dw_conv.conv.weight	1.0020243	49.0
+features.stage4.unit3.pw_conv.conv.weight	1.388736	43.25
+features.stage4.unit4.dw_conv.conv.weight	0.97836095	50.0
+features.stage4.unit4.pw_conv.conv.weight	2.4642358	23.75
+features.stage4.unit5.dw_conv.conv.weight	1.6414621	38.0
+features.stage4.unit5.pw_conv.conv.weight	3.2580178	17.0
+features.stage4.unit6.dw_conv.conv.weight	0.5807294	56.5
+features.stage4.unit6.pw_conv.conv.weight	4.191115	8.5
+features.stage5.unit1.dw_conv.conv.weight	0.5433548	61.75
+features.stage5.unit1.pw_conv.conv.weight	5.444558	2.0
+features.stage5.unit2.dw_conv.conv.weight	0.1595619	72.5
+features.stage5.unit2.pw_conv.conv.weight	5.6259313	8.25
+output.weight	0.8520781	51.75

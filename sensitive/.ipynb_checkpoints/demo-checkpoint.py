@@ -29,12 +29,30 @@ transform_test = transforms.Compose([transforms.Resize(224),transforms.RandomCro
 #         transforms.ToTensor(),  # 将图片转换为Tensor,归一化至[0,1]
 #         normalize
     # ])
-testset = datasets.ImageFolder(root='../../../../data/ILSVRC2012_img_val', transform=transform_test)
-test_loader = torch.utils.data.DataLoader(testset, batch_size=1, shuffle=True, pin_memory=True)
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+
+data_transform = {                      # 数据预处理
+        "train": transforms.Compose([
+            transforms.RandomCrop(32, padding=4),  #先四周填充0，在吧图像随机裁剪成32*32
+            transforms.RandomHorizontalFlip(),  #图像一半的概率翻转，一半的概率不翻转
+            transforms.ToTensor(),
+            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)) #R,G,B每层的归一化用到的均值和方差
+        ]),
+        "val": transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
+        ])
+}
+    # 加载数据集，指定训练或测试数据，指定于处理方式
+test_data = datasets.CIFAR10(root='../../../../data/', train=False, transform=data_transform["val"], download=False)
+
+test_dataloader = torch.utils.data.DataLoader(test_data, test_batch_size, False, num_workers=0)
+
 
 net_list = ['resnet18', 'resnet50', 'resnet101', 'vgg16', 'mobilenet_w1', 'efficientnet_b0', 'inceptionv3']
 
-net = ptcv_get_model("resnet50", pretrained=True)
+net = ptcv_get_model("resnet18", pretrained=True)
 net.eval()
 for name, param in net.named_parameters():
     print(name, param.shape)
